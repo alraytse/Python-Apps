@@ -1,0 +1,376 @@
+hostName,hostname,name,mgmtIP,mgmtIp,managementIP,interfaceTypes,vrfNames,routingProtocols,subTypeName
+,,DDC1-IDFA1-LSW7,10.254.146.200,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW8,10.254.146.201,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW9,10.254.118.10,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-MSW1,10.254.146.100,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW10,10.254.146.65,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW11,10.254.146.57,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW12,10.254.146.125,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW13,10.254.146.58,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW14,10.254.146.196,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW15,10.254.146.202,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW16,10.254.146.112,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW2,10.254.146.105,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW3,10.254.146.126,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW4,10.254.146.154,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW5,10.254.146.120,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW6,10.254.146.121,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW7,10.254.146.223,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW8,10.254.146.11,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-MSW9,10.254.146.12,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFA1-RC1,10.254.118.29,,,N/A,None,None,Opengear Infrastructure Manager
+,,DDC1-IDFA1-TSV1,10.254.146.106,,,N/A,None,None,Cisco Router
+,,DDC1-IDFA1-TSV2,10.254.146.104,,,N/A,None,None,Cisco Router
+,,DDC1-IDFA1-TSV3,10.254.146.107,,,N/A,None,None,Cisco Router
+,,DDC1-IDFB1-FCS1-1,10.254.146.240,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFB1-FCS2-1,10.254.146.247,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFB1-MSW1,10.254.146.116,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFB1-MSW2,10.254.146.117,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFB1-TSV1,10.254.146.108,,,N/A,None,None,Opengear Infrastructure Manager
+,,DDC1-IDFC1-ASW1,10.7.8.1,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD1-FCS10,10.254.146.219,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS11,10.254.146.220,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS1-1,10.254.146.241,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS12,10.254.146.221,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS2-1,10.254.146.248,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS3-1,10.254.146.242,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS4-1,10.254.146.249,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS5-1,10.254.146.243,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS6-1,10.254.146.78,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-FCS9,10.254.146.218,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD1-MSW1,10.254.146.101,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD1-MSW2,10.254.146.102,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD1-MSW3,10.254.146.103,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD1-MSW4,10.254.146.207,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD1-RC1,10.254.118.14,,,N/A,None,None,Opengear Infrastructure Manager
+,,DDC1-IDFD1-RC2,10.254.118.17,,,N/A,None,None,Opengear Infrastructure Manager
+,,DDC1-IDFD1-TSV2,10.254.146.113,,,N/A,None,None,Cisco Router
+,,DDC1-IDFD4-ASW1,10.254.132.134,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD4-ASW2,10.254.132.149,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFD4-ASW3,10.254.146.38,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD4-ASW4,10.254.146.39,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD5-ASW1,10.254.146.17,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD5-ASW2,10.254.146.18,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD6-ASW1,10.254.146.51,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFD6-ASW2,10.254.146.52,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFE1-ASW1,10.7.8.2,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFE1-ASW3,10.254.0.67,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFE1-MSW1,10.254.146.137,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-IDFE1-TSV1,10.254.146.109,,,N/A,None,None,Cisco Router
+,,DDC1-IDFE1-TSV2,10.254.146.110,,,N/A,None,None,Cisco Router
+,,DDC1-IDFE1-TSV3,10.254.146.111,,,N/A,None,None,Cisco Router
+,,DDC1-IDFE1-TSV4,10.254.146.119,,,N/A,None,None,Cisco Router
+,,DDC1-INTRAF-MRT1,10.2.255.226,,,N/A,None,None,Cisco Meraki Firewall
+,,DDC1-IPS-ASW1,10.254.146.138,,,N/A,None,None,Arista Switch
+,,DDC1-IPS-ASW2,10.254.146.139,,,N/A,None,None,Arista Switch
+,,DDC1-IPS-ASW3,10.254.146.173,,,N/A,None,None,Arista Switch
+,,DDC1-IPS-ASW4,10.254.146.174,,,N/A,None,None,Arista Switch
+,,DDC1-IPS-DSW1,10.254.146.171,,,N/A,None,None,Arista Switch
+,,DDC1-IPS-DSW2,10.254.146.172,,,N/A,None,None,Arista Switch
+,,DDC1-ISP-ASW1,10.254.146.169,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ISP-ASW2,10.254.146.170,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ISP-DSW1,10.254.146.167,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ISP-DSW2,10.254.146.168,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ISP-FW1,10.7.30.1,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW1/vsys1,10.7.30.1,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW1/vsys2,10.7.30.1,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW1/vsys4,10.7.30.1,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW2,10.7.30.2,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW2/vsys1,10.7.30.2,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW2/vsys2,10.7.30.2,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW2/vsys4,10.7.30.2,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys1,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys3,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys5,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys6,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys7,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW5/vsys8,10.254.149.28,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys1,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys3,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys5,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys6,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys7,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW6/vsys8,10.254.149.29,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW7,10.7.30.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW7/vsys1,10.7.30.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW7/vsys2,10.7.30.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW7/vsys3,10.7.30.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW8,10.7.30.34,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW8/vsys1,10.7.30.34,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-FW8/vsys2,10.7.30.34,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ISP-GRT1,10.254.146.161,,,N/A,None,None,Cisco Router
+,,DDC1-ISP-GRT2,10.254.146.162,,,N/A,None,None,Cisco Router
+,,DDC1-ISP-N7K1,10.254.146.165,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ISP-N7K2,10.254.146.166,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ITEDMZ-LTM3,10.254.146.15,,,N/A,None,None,F5 Load Balancer
+,,DDC1-ITEDMZ-LTM4,10.254.146.16,,,N/A,None,None,F5 Load Balancer
+,,DDC1-ITE-DSW1,10.254.146.59,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ITE-DSW2,10.254.146.60,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-ITE-FW1,10.254.149.20,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-ITE-FW2,10.254.149.21,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-M500-MGT1,10.7.30.30,,,N/A,None,None,Palo Alto Panorama
+,,DDC1-MAN-ASW1,10.254.146.7,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-MAN-ASW2,10.254.146.8,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-MDFA1-AVG1,10.255.132.34,,,N/A,None,None,Cisco Voice Gateway
+,,DDC1-MDFA1-RSW1,10.254.146.3,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFA1-RSW2,10.254.146.4,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFA1-VGW1,10.254.132.1,,,N/A,None,None,Cisco Router
+,,DDC1-MDFA1-VGW2,10.254.132.2,,,N/A,None,None,Cisco Router
+,,DDC1-MDFE1-COR1,10.254.132.222,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-COR2,10.254.132.223,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-DSW1,10.254.132.162,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-DSW2,10.254.132.163,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-ERT1,10.50.66.58,,,N/A,None,None,SilverPeak WAN Optimizer
+,,DDC1-MDFE1-ERT2,10.50.64.34,,,N/A,None,None,SilverPeak WAN Optimizer
+,,DDC1-MDFE1-GRT1,10.254.146.155,,,N/A,None,None,Cisco Router
+,,DDC1-MDFE1-GRT2,10.254.146.156,,,N/A,None,None,Cisco Router
+,,DDC1-MDFE1-LSW01,10.254.146.20,,,N/A,None,None,Arista Switch
+,,DDC1-MDFE1-LSW02,10.254.146.21,,,N/A,None,None,Arista Switch
+,,DDC1-MDFE1-LTM1,10.254.146.214,,,N/A,None,None,F5 Load Balancer
+,,DDC1-MDFE1-LTM2,10.254.146.215,,,N/A,None,None,F5 Load Balancer
+,,DDC1-MDFE1-N7K1,10.254.146.9,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-N7K2,10.254.146.10,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-SSW1,10.254.118.146,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-SSW2,10.254.118.147,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-MDFE1-VRT1,10.254.146.227,,,N/A,None,None,Viptela vEdge
+,,DDC1-MDFE1-VRT2,10.254.146.228,,,N/A,None,None,Viptela vEdge
+,,DDC1-MDFE1-VRT3,10.254.118.15,,,N/A,None,None,Viptela vEdge
+,,DDC1-MDFE1-VRT4,10.254.118.16,,,N/A,None,None,Viptela vEdge
+,,DDC1-MSCS-FAXRT1,10.254.132.187,,,N/A,None,None,Cisco Router
+,,DDC1-MSW-DSW1,10.254.146.252,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-MSW-DSW2,10.254.146.253,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-NMGT-NTP2,10.7.254.141,,,N/A,None,None,Microsemi SyncServer
+,,DDC1-OFF-ASW1,10.7.8.26,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-OFF-ASW2,10.7.8.20,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-PCIDMZ-DFW1,10.254.149.26,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW1/vsys1,10.254.149.26,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW1/vsys2,10.254.149.26,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW1/vsys3,10.254.149.26,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW1/vsys4,10.254.149.26,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW2,10.254.149.27,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW2/vsys1,10.254.149.27,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW2/vsys2,10.254.149.27,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW2/vsys3,10.254.149.27,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-DFW2/vsys4,10.254.149.27,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-PCIDMZ-LTM1,10.254.146.86,,,N/A,None,None,F5 Load Balancer
+,,DDC1-PCIDMZ-LTM2,10.254.146.22,,,N/A,None,None,F5 Load Balancer
+,,DDC1-POD4-BSW1,10.254.118.60,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-BSW2,10.254.118.61,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW10,10.8.32.5,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW11,10.8.32.6,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW12,10.8.32.7,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW13,10.8.32.8,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW14,10.8.32.9,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW3,10.254.118.62,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW4,10.254.118.63,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW5,10.254.118.64,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW6,10.254.118.65,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW7,10.254.118.66,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-LSW8,10.254.118.67,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-MGMT-01,10.8.32.10,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-MGMT-02,10.8.32.11,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-MGMT-03,10.8.32.12,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-MGMT-04,10.8.32.13,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-MGMT-05,10.8.32.14,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-MGMT-06,10.8.32.15,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-POD4-SSW1,10.254.118.58,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD4-SSW2,10.254.118.59,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-BSW1,10.254.132.254,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-BSW2,10.254.132.254,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-LSW3,10.254.118.80,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-LSW4,10.254.118.81,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-SSW1,10.254.118.76,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-POD5-SSW2,10.254.118.77,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SAP-DSW1,10.254.132.228,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SAP-DSW2,10.254.132.229,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SDA1-ACE1/Admin,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX1,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX2,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX3-CIT,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX4-CITDEV,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX5-MMS,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX6-PCI,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX7-RoutedDev,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE1/CX8-RTPROD,10.254.132.154,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/Admin,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX1,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX2,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX3-CIT,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX4-CITDEV,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,ADC21-MDFA1-SSW3,10.12.1.233,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SDA1-ACE2/CX5-MMS,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX6-PCI,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX7-RoutedDev,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-ACE2/CX8-RTPROD,10.254.132.155,,,N/A,None,None,Cisco ACE
+,,DDC1-SDA1-FW1,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW1/vsys1,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW1/vsys2,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW1/vsys3,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW1/vsys7,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW1/vsys8,10.254.149.32,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2/vsys1,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2/vsys2,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2/vsys3,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2/vsys7,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SDA1-FW2/vsys8,10.254.149.33,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-SMO-ASW1,10.254.146.41,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SMO-ASW2,10.254.146.42,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-SMO-LTM1,10.254.146.82,,,N/A,None,None,F5 Load Balancer
+,,DDC1-SMO-LTM2,10.254.146.83,,,N/A,None,None,F5 Load Balancer
+,,DDC1-USON-ASW1,10.254.146.24,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-ASW2,10.254.146.25,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-ASW3,10.254.146.26,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-ASW4,10.254.146.27,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-ASW5,10.254.146.28,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-ASW6,10.254.146.29,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-DSW1,10.254.146.5,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-DSW2,10.254.146.6,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USON-FW5,10.254.149.170,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USON-FW6,10.254.149.171,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USON-ISE3,10.9.18.27,,,N/A,None,None,Cisco ISE
+,,DDC1-USON-ISE4,10.9.18.28,,,N/A,None,None,Cisco ISE
+,,DDC1-USONME-ASW1,10.254.146.211,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USONME-ASW2,10.254.146.250,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-USONME-FW3,10.254.149.83,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USONME-FW4,10.254.149.84,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USONME-GRT1,10.254.146.251,,,N/A,None,None,Cisco Router
+,,DDC1-USONME-GRT2,10.254.146.50,,,N/A,None,None,Cisco Router
+,,DDC1-USONVPN-FW3,10.254.149.85,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USONVPN-FW4,10.254.149.86,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-USON-VRT1,10.254.146.236,,,N/A,None,None,Viptela vEdge
+,,DDC1-USON-VRT2,10.254.146.237,,,N/A,None,None,Viptela vEdge
+,,DDC1-USON-WEB1,10.5.206.238,,,N/A,None,None,Netscaler Load Balancer
+,,DDC1-USON-WEB2,10.5.206.239,,,N/A,None,None,Netscaler Load Balancer
+,,DDC1-USON-WLC3,10.9.18.20,,,N/A,None,None,Cisco WLC
+,,DDC1-USON-WLC4,10.9.18.21,,,N/A,None,None,Cisco WLC
+,,DDC1-USR-DSW1,10.7.8.28,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-USR-DSW2,10.7.8.29,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-VCD-ASW1,10.9.249.252,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-VCD-ASW2,10.9.247.253,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-VCD-DSW1,10.9.247.4,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-VCD-DSW2,10.9.247.5,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-VCD-LSW1,10.254.146.129,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW2,10.254.146.130,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW3,10.254.146.131,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW4,10.254.146.132,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW5,10.254.146.133,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW6,10.254.146.134,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW7,10.254.146.55,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-LSW8,10.254.146.56,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-MSW1,10.254.146.135,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-VCD-MSW2,10.254.146.136,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-VCD-SSW1,10.254.146.127,,,N/A,None,None,Arista Switch
+,,DDC1-VCD-SSW2,10.254.146.128,,,N/A,None,None,Arista Switch
+,,DDC1-VPN-GRT2,192.168.158.90,,,N/A,None,None,Cisco Router
+,,DDC1-WAA-MGMT,10.254.146.71,,,N/A,None,None,Riverbed WAN Optimizer
+,,DDC1-WLAN1-VX5,10.9.134.248,,,N/A,None,None,Unclassified Device
+,,DDC1-WLAN1-VX6,10.9.134.249,,,N/A,None,None,Unclassified Device
+,,DDC1-WLAN1-WLC2,10.7.28.191,,,N/A,None,None,Cisco WLC
+,,DDC1-AGG-MGMT-DSW1,10.254.118.253,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-B2B-FW5,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW5/vsys1,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW5/vsys2,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW5/vsys3,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW5/vsys4,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW5/vsys5,10.7.30.161,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6/vsys1,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6/vsys2,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6/vsys3,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6/vsys4,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-B2B-FW6/vsys5,10.7.30.162,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-BAK-ASW3,10.254.146.73,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-BAK-ASW4,10.254.146.74,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-BMF-CON1,10.254.146.210,,,N/A,None,None,Big Switch Controller
+,,DDC1-BMF-CON2,10.254.146.209,,,N/A,None,None,Big Switch Controller
+,,DDC1-BMF-SN1,10.1.136.15,,,N/A,None,None,Big Switch Controller
+,,DDC1-CPASS-TEST,149.21.65.59,,,N/A,None,None,ClearPass NAC
+,,DDC1-DCF-ASW1,10.254.132.97,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW10,10.254.132.106,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW11,10.254.132.107,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW2,10.254.132.98,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW3,10.254.132.99,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW4,10.254.132.100,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW5,10.254.132.101,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW6,10.254.132.102,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW7,10.254.132.103,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW8,10.254.132.105,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-ASW9,10.254.132.104,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DCF-DSW1,10.254.132.126,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-DMZ-ASW1,10.254.118.31,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-ASW2,10.254.118.32,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-ASW3,10.254.118.33,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-ASW4,10.254.118.34,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-DSW1,10.254.118.35,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-DSW2,10.254.118.36,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-DMZ-GTM1,10.254.146.114,,,N/A,None,None,F5 Load Balancer
+,,DDC1-DMZ-LTM1,10.254.146.68,,,N/A,None,None,F5 Load Balancer
+,,DDC1-DMZ-LTM2,10.254.146.72,,,N/A,None,None,F5 Load Balancer
+,,DDC1-EXT1-FW1,10.254.149.30,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW1/vsys1,10.254.149.30,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW1/vsys2,10.254.149.30,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW1/vsys3,10.254.149.30,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW2,10.254.149.31,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW2/vsys1,10.254.149.31,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW2/vsys2,10.254.149.31,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT1-FW2/vsys3,10.254.149.31,,,N/A,None,None,Palo Alto Firewall
+,,DDC1-EXT-DSW1,10.254.146.142,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-EXT-DSW2,10.254.146.143,,,N/A,None,None,Cisco IOS Switch
+,,DDC1-EXT-GRT1,10.254.146.140,,,N/A,None,None,Cisco Router
+,,DDC1-EXT-GRT2,10.254.146.141,,,N/A,None,None,Cisco Router
+,,DDC1-FAX-ART1,10.254.134.10,,,N/A,None,None,Cisco Router
+,,DDC1-FAX-ART2,10.254.134.11,,,N/A,None,None,Cisco Router
+,,DDC1-FAX-ART3,10.254.134.12,,,N/A,None,None,Cisco Router
+,,DDC1-FCIP-FCS1,10.254.146.122,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-FCIP-FCS2,10.254.146.123,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-HADR-DSW1,10.254.146.61,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-HADR-DSW2,10.254.146.62,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS1,10.254.146.216,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS2,10.254.146.217,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS3,10.254.146.163,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS4,10.254.146.164,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS5,10.254.146.225,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS6,10.254.146.226,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS7,10.254.146.190,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IBM-FCS8,10.254.146.191,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-ASW1,10.254.146.53,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-ASW2,10.254.146.54,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-BSW1,10.254.146.98,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-BSW2,10.254.146.99,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-FCS1-1,10.254.146.77,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-FCS2-1,10.254.146.245,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-FCS3-1,10.254.146.239,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-FCS4-1,10.254.146.246,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW1,10.254.146.157,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW10,10.254.118.11,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW11,10.254.118.12,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW12,10.254.118.13,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW13,10.254.118.23,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW14,10.254.118.24,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW15,10.254.118.25,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW16,10.254.118.26,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW17,10.254.118.27,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW18,10.254.118.28,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW2,10.254.146.158,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW3,10.254.146.159,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW4,10.254.146.160,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW5,10.254.146.67,,,N/A,None,None,Cisco Nexus Switch
+,,DDC1-IDFA1-LSW6,10.254.146.206,,,N/A,None,None,Cisco Nexus Switch
+,,SAL1-MDFA1-DSW1-3,10.190.188.36,,,N/A,None,None,Cisco Meraki Switch
+,,ddc1-connect-ltm1,10.254.146.40,,,N/A,None,None,F5 Load Balancer
+,,ddc1-connect-ltm2,10.254.146.35,,,N/A,None,None,F5 Load Balancer
+,,ddc1-nmgt-fns(1405202204700010),10.7.165.98,,,N/A,None,None,Infoblox
+,,ddc1-nmgt-fns(1405202204700195),10.7.165.99,,,N/A,None,None,Infoblox
+,,ddc1-nmgtlab-gm,10.7.137.10,,,N/A,None,None,Unclassified Device
+,,ddc1-nmgt-ns,10.7.224.100,,,N/A,None,None,Infoblox
+,,ddc1-nmgt-ntp1,10.7.251.141,,,N/A,None,None,Microsemi SyncServer
+,,ddc1-nmgt-vgmc2,149.21.64.250,,,N/A,None,None,Infoblox
+,,ddc1-smo1-fw1,10.254.149.24,,,N/A,None,None,Palo Alto Firewall
+,,ddc1-smo1-fw2,10.254.149.25,,,N/A,None,None,Palo Alto Firewall
+,,ddc1-uson-ltm1,10.5.206.224,,,N/A,None,None,F5 Load Balancer
+,,ddc1-uson-ltm2,10.5.206.225,,,N/A,None,None,F5 Load Balancer
+,,ddc1-vb01md9101,10.9.247.20,,,N/A,None,None,Cisco MDS
+,,ddc1-vb01md9102,10.9.247.21,,,N/A,None,None,Cisco MDS
