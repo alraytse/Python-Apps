@@ -1,220 +1,230 @@
-import os
-import time
-import json
+import requests
 import csv
-import logging
-import getpass
-import shutil
-from datetime import datetime
+import sys
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import paramiko
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-# ========= RUN MODE =========
-RUN_MODE = input("Run mode (pre/post): ").strip().lower()
-if RUN_MODE not in {"pre", "post"}:
-    raise ValueError("Run mode must be 'pre' or 'post'")
+# Suppress SSL certificate verification warnings
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-RUN_TS = datetime.now().strftime('%Y%m%d_%H%M%S')
+# --- Configuration Section ---
+BASE_URL = "https://netbrain.mckesson.com/ServicesAPI/API/V1"
+USERNAME = "skk30ws"
+PASSWORD = "m'A)=(nR0k{D#r0q6uEQy"
 
-# ========= DIRECTORIES =========
-LOG_DIR = 'logs'
-BASE_ARTIFACTS_DIR = 'artifacts'
-ARTIFACTS_DIR = os.path.join(BASE_ARTIFACTS_DIR, RUN_MODE)
+# Explicitly targets your downloads folder
+OUTPUT_FILE = "/Users/alex.raytselsky/Downloads/ddc1_network_inventory.csv"
 
-os.makedirs(LOG_DIR, exist_ok=True)
-os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+# Concurrency tuning parameters
+MAX_WORKERS = 50   
+PAGE_LIMIT = 100    
+MAX_ESTIMATED_PAGES = 100  
 
-# ========= CREDENTIALS =========
-DEVICE_USERNAME = input("Enter device username: ").strip()
-DEVICE_PASSWORD = getpass.getpass("Enter device password: ").strip()
+# List of default system VRF names to exclude from the report
+DEFAULT_VRFS = {"default", "mgmt", "management", "global", "none", "null", ""}
 
-if not DEVICE_USERNAME or not DEVICE_PASSWORD:
-    raise ValueError("Username and password must not be empty.")
+# 1. Authenticate with NetBrain
+login_url = f"{BASE_URL}/Session"
+login_payload = {"username": USERNAME, "password": PASSWORD}
 
-# ========= DEVICES =========
-raw_devices = input("Enter device hostnames (comma-separated): ").strip()
-if not raw_devices:
-    raise ValueError("At least one device hostname must be provided.")
+print("Logging into NetBrain (External Auth)...")
+response = requests.post(login_url, json=login_payload, verify=False)
 
-device_list = [d.strip() for d in raw_devices.split(",") if d.strip()]
-devices = {device: {"host": device} for device in device_list}
+if response.status_code != 200:
+    raise Exception(f"Authentication failed ({response.status_code}): {response.text}")
 
-# ========= LOGGING =========
-log_path = os.path.join(LOG_DIR, f'validation_{RUN_MODE}_{RUN_TS}.log')
-logging.basicConfig(
-    filename=log_path,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+login_data = response.json()
+token = login_data.get("token")
 
-logger = logging.getLogger()
-if not any(isinstance(h, logging.StreamHandler) for h in logger.handlers):
-    console = logging.StreamHandler()
-    console.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-    logger.addHandler(console)
+if not token:
+    raise Exception("Token not found in login response payload.")
 
-# ========= START STATUS =========
-logging.info("=" * 72)
-logging.info("SCRIPT STARTED")
-logging.info(f"Run mode        : {RUN_MODE.upper()}")
-logging.info(f"Run timestamp   : {RUN_TS}")
-logging.info(f"Devices total   : {len(devices)}")
-logging.info("Script is running — device outputs are being collected and logged")
-logging.info("=" * 72)
-print("\n>>> Script is running. Outputs are being logged. Do NOT interrupt.\n")
-
-# ========= COMMANDS =========
-commands = {
-    device: [
-        "terminal length 0",
-        "show clock",
-        "show version",
-        "show ip route summary",
-        "show ip route summary vrf all",
-        "show ip bgp summary",
-        "show interface status",
-        "show ip interface brief",
-        "show ip interface brief vrf all",
-        "show interface description",
-        "show route-map",
-        "show ip prefix-list",
-        "show logging last 50",
-        "show ip route vrf all",
-        "show ip bgp vrf all"
-    ]
-    for device in devices
+headers = {
+    "Token": token,
+    "Content-Type": "application/json",
+    "Accept": "application/json"
 }
 
-# ========= HELPERS =========
-def safe_str(s: str) -> str:
-    return (s or "").replace("\r", "").replace("\x1b", "")
+if login_data.get("tenantId") and login_data.get("domainId"):
+    headers["tenantId"] = login_data.get("tenantId")
+    headers["domainId"] = login_data.get("domainId")
 
-def connect_ssh(host, timeout=15):
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(
-        hostname=host,
-        username=DEVICE_USERNAME,
-        password=DEVICE_PASSWORD,
-        timeout=timeout,
-        allow_agent=False,
-        look_for_keys=False
-    )
-    return client
 
-def run_exec(client, cmd, read_timeout=60):
-    start = time.time()
-    stdin, stdout, stderr = client.exec_command(cmd, timeout=read_timeout)
-    stdout.channel.settimeout(read_timeout)
-
-    out = stdout.read().decode(errors="replace")
-    err = stderr.read().decode(errors="replace")
-
+# 2. Worker task to pull basic device records
+def fetch_device_page(skip_value):
+    url = f"{BASE_URL}/CMDB/Devices"
+    query_params = {
+        "skip": skip_value,
+        "limit": PAGE_LIMIT
+    }
     try:
-        status = stdout.channel.recv_exit_status()
+        res = requests.get(url, headers=headers, params=query_params, verify=False, timeout=30)
+        if res.status_code == 200:
+            return res.json().get("devices", [])
+        return []
     except Exception:
-        status = -1
+        return []
 
-    return status, safe_str(out), safe_str(err), time.time() - start
 
-# ========= PRE → POST COPY =========
-def copy_pre_artifacts_if_post():
-    if RUN_MODE != "post":
-        return
-
-    pre_dir = os.path.join(BASE_ARTIFACTS_DIR, "pre")
-    if not os.path.isdir(pre_dir):
-        raise FileNotFoundError("PRE artifacts not found — run PRE first.")
-
-    logging.info("POST run detected — copying PRE artifacts as-is")
-    for fname in os.listdir(pre_dir):
-        if fname.endswith(".txt"):
-            shutil.copy2(
-                os.path.join(pre_dir, fname),
-                os.path.join(ARTIFACTS_DIR, f"PRE_COPY_{fname}")
-            )
-            logging.info(f"Copied PRE artifact: {fname}")
-
-# ========= EXECUTION =========
-def execute_commands(device, info, command_list, index, total):
-    device_start = time.time()
-    host = info["host"]
-
-    logging.info(f"[{index}/{total}] {device} — connecting")
-    client = connect_ssh(host)
-
-    artifact_txt = os.path.join(ARTIFACTS_DIR, f"{device}_{RUN_TS}.txt")
-    artifact_csv = os.path.join(ARTIFACTS_DIR, f"{device}_{RUN_TS}.csv")
-
-    logging.info(f"[{device}] Writing output to {artifact_txt}")
-
-    rows = []
+# 3. Worker task to enrich devices with Interface, Production VRF, and Routing Protocols
+def enrich_device_metadata(device_id, hostname):
+    types = set()
+    vrfs = set()
+    protocols = set()
+    
+    query_params_id = {"deviceId": device_id} if device_id else {"hostname": str(hostname).lower()}
+    query_params_fallback = {"hostname": str(hostname).lower()}
+    
+    try:
+        intf_url = f"{BASE_URL}/CMDB/Devices/Interfaces"
+        res_intf = requests.get(intf_url, headers=headers, params=query_params_id, verify=False, timeout=15)
+        
+        if res_intf.status_code != 200 or not res_intf.json().get("interfaces"):
+            res_intf = requests.get(intf_url, headers=headers, params=query_params_fallback, verify=False, timeout=15)
+            
+        if res_intf.status_code == 200:
+            interfaces = res_intf.json().get("interfaces", [])
+            for intf in interfaces:
+                if_type = intf.get("interfaceType") or intf.get("type") or intf.get("intfType")
+                if if_type:
+                    types.add(str(if_type))
+                    
+                vrf_name = intf.get("vrf") or intf.get("vrfName") or intf.get("vrf_name")
+                if vrf_name and str(vrf_name).strip().lower() not in DEFAULT_VRFS:
+                    vrfs.add(str(vrf_name).strip())
+    except Exception:
+        pass
 
     try:
-        with open(artifact_txt, "w", encoding="utf-8") as outf:
-            outf.write(f"==== {RUN_MODE.upper()} | {device} | {RUN_TS} ====\n")
+        rt_url = f"{BASE_URL}/CMDB/Devices/Routing/Protocols"
+        res_rt = requests.get(rt_url, headers=headers, params=query_params_id, verify=False, timeout=15)
+        
+        if res_rt.status_code != 200 or not res_rt.json().get("protocols"):
+            res_rt = requests.get(rt_url, headers=headers, params=query_params_fallback, verify=False, timeout=15)
+            
+        if res_rt.status_code == 200:
+            proto_list = res_rt.json().get("protocols", [])
+            for proto in proto_list:
+                p_name = proto.get("protocolName") or proto.get("name") or proto.get("type")
+                if p_name:
+                    protocols.add(str(p_name).upper())
+    except Exception:
+        pass
+                    
+    return list(types), list(vrfs), list(protocols)
 
-            for i, cmd in enumerate(command_list, 1):
-                logging.info(f"[{device}] Command {i}/{len(command_list)}: {cmd}")
-                ts = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-                status, out, err, elapsed = run_exec(client, cmd)
+# 4. Thread Orchestration Pool - Phase 1: Global Device Collection
+all_ddc1_devices = []
+seen_hostnames = set()
+all_discovered_columns = set()
 
-                outf.write(f"\n--- {ts} :: {cmd} ---\n{out}\n")
+all_discovered_columns.update(["interfaceTypes", "vrfNames", "routingProtocols"])
 
-                rows.append({
-                    "timestamp": ts,
-                    "device": device,
-                    "command": cmd,
-                    "exit_status": status,
-                    "duration_ms": int(elapsed * 1000)
-                })
-    finally:
-        client.close()
+skip_offsets = [i * PAGE_LIMIT for i in range(MAX_ESTIMATED_PAGES)]
 
-    with open(artifact_csv, "w", newline='', encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=rows[0].keys())
-        writer.writeheader()
-        writer.writerows(rows)
+print(f"\nInitializing ThreadPoolExecutor with {MAX_WORKERS} workers...")
+print("Pulling inventory globally and compiling DDC1 device profiles...")
 
-    elapsed = time.time() - device_start
-    logging.info(f"[{device}] Completed in {elapsed:.1f}s")
+with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    future_to_skip = {executor.submit(fetch_device_page, skip): skip for skip in skip_offsets}
+    
+    for future in as_completed(future_to_skip):
+        try:
+            devices_batch = future.result()
+            if devices_batch:
+                for device in devices_batch:
+                    hostname = device.get("hostName") or device.get("hostname") or device.get("name")
+                    
+                    if hostname and hostname not in seen_hostnames:
+                        # CRITICAL FIX: Convert the entire string representation to uppercase 
+                        # to match 'DDC1' regardless of casing layout (e.g. 'ddc1', 'Ddc1')
+                        device_str = str(device).upper()
+                        
+                        if "DDC1" in device_str:
+                            seen_hostnames.add(hostname)
+                            flat_device = {}
+                            flat_device["_internal_processing_id"] = device.get("id") or device.get("deviceId")
+                            
+                            def is_excluded(field_name):
+                                name_lower = field_name.lower()
+                                return "id" in name_lower or "discovery" in name_lower or "time" in name_lower
 
-    return {"device": device, "status": "ok", "duration_sec": round(elapsed, 1)}
+                            for key, value in device.items():
+                                if key == "attributes" and isinstance(value, dict):
+                                    for sub_key, sub_value in value.items():
+                                        if is_excluded(sub_key):
+                                            continue
+                                        flat_device[f"attr_{sub_key}"] = sub_value
+                                else:
+                                    if is_excluded(key):
+                                        continue
+                                    flat_device[key] = value
+                                    
+                            for flat_key in flat_device.keys():
+                                if flat_key != "_internal_processing_id":
+                                    all_discovered_columns.add(flat_key)
+                                
+                            all_ddc1_devices.append(flat_device)
+        except Exception:
+            pass
 
-# ========= RUN ALL =========
-def run_all():
-    results = []
-    total = len(devices)
+print(f"\n[DEBUG LOG] Phase 1 finished. Found a total of {len(all_ddc1_devices)} unique DDC1 devices.")
 
-    with ThreadPoolExecutor(max_workers=total) as pool:
-        futures = {
-            pool.submit(execute_commands, d, devices[d], commands[d], i + 1, total): d
-            for i, d in enumerate(devices)
-        }
+# 5. Thread Orchestration Pool - Phase 2: Complete Data Enrichment Loop
+if all_ddc1_devices:
+    print(f"Gathering interface types, production VRFs, and routing protocols for {len(all_ddc1_devices)} devices...")
+    
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as enrichment_executor:
+        future_to_device = {}
+        for dev in all_ddc1_devices:
+            hname = dev.get("hostName") or dev.get("hostname") or dev.get("name")
+            device_id_context = dev.get("_internal_processing_id")
+            if hname:
+                f = enrichment_executor.submit(enrich_device_metadata, device_id_context, hname)
+                future_to_device[f] = dev
+        
+        for future in as_completed(future_to_device):
+            device_ref = future_to_device[future]
+            try:
+                unique_types, unique_vrfs, unique_protocols = future.result()
+                device_ref["interfaceTypes"] = ", ".join(sorted(unique_types)) if unique_types else "N/A"
+                device_ref["vrfNames"] = ", ".join(sorted(unique_vrfs)) if unique_vrfs else "None"
+                device_ref["routingProtocols"] = ", ".join(sorted(unique_protocols)) if unique_protocols else "None"
+            except Exception:
+                device_ref["interfaceTypes"] = "Error"
+                device_ref["vrfNames"] = "Error"
+                device_ref["routingProtocols"] = "Error"
+            finally:
+                device_ref.pop("_internal_processing_id", None)
 
-        for fut in as_completed(futures):
-            results.append(fut.result())
+# 6. Generate CSV Spreadsheet Layout (Bypassing early execution drops)
+print(f"\nProcessing compilation data...")
 
-    summary_path = os.path.join(ARTIFACTS_DIR, f"run_summary_{RUN_TS}.json")
-    with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2)
+# CRITICAL FIX: Even if 0 records match, write a fallback structured schema grid instead of killing execution
+if not all_ddc1_devices:
+    all_ddc1_devices.append({
+        "hostName": "No Matching DDC1 Assets Discovered",
+        "mgmtIP": "Verify NetBrain Scope Casing",
+        "interfaceTypes": "N/A",
+        "vrfNames": "None",
+        "routingProtocols": "None"
+    })
+    all_discovered_columns.update(["hostName", "mgmtIP", "interfaceTypes", "vrfNames", "routingProtocols"])
 
-    logging.info(f"Summary written to {summary_path}")
-    return results
+primary_headers = ["hostName", "hostname", "name", "mgmtIP", "mgmtIp", "managementIP", "interfaceTypes", "vrfNames", "routingProtocols"]
+sorted_all_columns = sorted(list(all_discovered_columns))
+dynamic_extra_headers = [col for col in sorted_all_columns if col not in primary_headers]
+ordered_headers = primary_headers + dynamic_extra_headers
 
-# ========= MAIN =========
-if __name__ == "__main__":
-    copy_pre_artifacts_if_post()
-    summary = run_all()
+with open(OUTPUT_FILE, mode="w", newline="", encoding="utf-8") as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=ordered_headers)
+    writer.writeheader()
+    for ddc1_device in all_ddc1_devices:
+        writer.writerow(ddc1_device)
 
-    ok = len([r for r in summary if r["status"] == "ok"])
+print(f"✅ Success! File generation routine complete: {OUTPUT_FILE}")
 
-    logging.info("=" * 72)
-    logging.info("SCRIPT COMPLETED")
-    logging.info(f"Devices successful : {ok}/{len(devices)}")
-    logging.info(f"Artifacts directory: {ARTIFACTS_DIR}")
-    logging.info("=" * 72)
-
-    print("\n>>> Script completed successfully.\n")
-    DEVICE_PASSWORD = None
+# 7. Gracefully terminate session
+print("\nLogging out...")
